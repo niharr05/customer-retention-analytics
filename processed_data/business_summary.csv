@@ -1,0 +1,11 @@
+Insight #,Business Insight
+1,"Customers holding 2 product(s) churn the least (7.6%), while those with 4 product(s) churn the most (100.0%) (note: only 60 customers hold 4 products, so this figure should be read with caution). Customers with 3+ products churn sharply more than those with 1-2, suggesting aggressive over-selling of products may itself be a churn signal rather than a retention lever."
+2,3.5% of the customer base are 'At-Risk Premium Customers' -> high-value clients who are inactive or under-engaged. These customers represent a hidden revenue risk and should be prioritized for proactive outreach.
+3,"High-balance customers churn at 24.5%, which is HIGHER than the overall churn rate of 20.4%. This confirms that a large balance alone does not guarantee loyalty -- engagement matters more."
+4,"Credit card holders retain at 79.8% versus 79.2% for non-holders -- a negligible gap, suggesting credit card ownership alone is not a meaningful retention lever in this portfolio and should not be over-weighted in retention strategy."
+5,"Relationship Strength Index shows only a weak correlation with churn (r = 0.01), indicating that relationship depth alone does not strongly predict attrition -- other factors such as activity status and product count carry more explanatory power."
+6,Inactive members churn at 26.9% versus 14.3% for active members -- reactivation campaigns targeting dormant customers could yield outsized retention gains.
+7,"'Germany' shows the highest regional churn rate at 32.4%, indicating potential market-specific service, pricing, or competitive pressures warranting local investigation."
+8,"The 'Middle Aged (46-60)' age segment exhibits the highest churn rate (51.1%), suggesting retention offers and communication styles may need to be tailored by life stage."
+9,"15.2% of customers show a salary-versus-balance mismatch (very high balance with low salary, or very high salary with low balance), which helps surface accounts whose financial commitment and cash behavior are misaligned."
+10,"The largest behavioral segment is 'Inactive Disengaged' at 31.7% of the portfolio, making it the most practical starting point for targeted retention playbooks."
