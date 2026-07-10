@@ -731,12 +731,13 @@ def calculate_kpis(df: pd.DataFrame) -> Dict[str, float]:
     max_products = max(int(df["NumOfProducts"].max()), 4)
     product_utilization_index = round((df["NumOfProducts"].mean() / max_products) * 100, 2)
 
-    # Engagement Retention Ratio: avg engagement of retained vs churned customers
-    avg_engagement_retained = df.loc[df["Exited"] == 0, "EngagementScore"].mean()
-    avg_engagement_churned = df.loc[df["Exited"] == 1, "EngagementScore"].mean()
+    # Engagement Retention Ratio: Active vs inactive churn comparison
+    # Shows how many times more likely inactive customers are to churn vs active ones.
+    active_churn_rate = df.loc[df["IsActiveMember"] == 1, "Exited"].mean() * 100
+    inactive_churn_rate = df.loc[df["IsActiveMember"] == 0, "Exited"].mean() * 100
     engagement_retention_ratio = (
-        round(avg_engagement_retained / avg_engagement_churned, 2)
-        if pd.notna(avg_engagement_churned) and avg_engagement_churned > 0
+        round(inactive_churn_rate / active_churn_rate, 2)
+        if active_churn_rate > 0
         else np.nan
     )
 

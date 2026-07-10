@@ -1179,6 +1179,56 @@ def page_product_utilization() -> None:
     )
     render_plot(fig)
 
+    st.subheader("Single-Product vs Multi-Product Retention")
+    single_prod = filtered_df[filtered_df["NumOfProducts"] == 1]
+    multi_prod = filtered_df[filtered_df["NumOfProducts"] >= 2]
+
+    single_retention = (single_prod["Exited"] == 0).mean() * 100 if len(single_prod) > 0 else 0
+    multi_retention = (multi_prod["Exited"] == 0).mean() * 100 if len(multi_prod) > 0 else 0
+    single_churn = 100 - single_retention
+    multi_churn = 100 - multi_retention
+
+    col_sp, col_mp = st.columns(2)
+    with col_sp:
+        st.markdown(
+            f"""<div class="metric-card">
+                <div class="metric-label">Single-Product Customers (1 Product)</div>
+                <div class="metric-value">{single_retention:.1f}%</div>
+                <div class="metric-delta" style="color:{DANGER};">Churn: {single_churn:.1f}% · {len(single_prod):,} customers</div>
+            </div>""",
+            unsafe_allow_html=True,
+        )
+    with col_mp:
+        st.markdown(
+            f"""<div class="metric-card">
+                <div class="metric-label">Multi-Product Customers (2+ Products)</div>
+                <div class="metric-value">{multi_retention:.1f}%</div>
+                <div class="metric-delta" style="color:{DANGER};">Churn: {multi_churn:.1f}% · {len(multi_prod):,} customers</div>
+            </div>""",
+            unsafe_allow_html=True,
+        )
+
+    retention_comparison = pd.DataFrame({
+        "Segment": ["Single-Product (1)", "Multi-Product (2+)"],
+        "Retention Rate (%)": [single_retention, multi_retention],
+        "Churn Rate (%)": [single_churn, multi_churn],
+    })
+    fig = go.Figure()
+    fig.add_trace(go.Bar(
+        x=retention_comparison["Segment"], y=retention_comparison["Retention Rate (%)"],
+        name="Retained", marker_color=SUCCESS,
+    ))
+    fig.add_trace(go.Bar(
+        x=retention_comparison["Segment"], y=retention_comparison["Churn Rate (%)"],
+        name="Churned", marker_color=DANGER,
+    ))
+    fig.update_layout(
+        title="Single-Product vs Multi-Product: Retention & Churn Rates",
+        barmode="group", template=az.PLOTLY_TEMPLATE,
+        yaxis_title="Rate (%)",
+    )
+    render_plot(fig)
+
     render_footer()
 
 

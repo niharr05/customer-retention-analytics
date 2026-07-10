@@ -295,7 +295,7 @@ class TestKPICalculations:
         """No KPI should be NaN (except Engagement Retention Ratio in edge cases)."""
         for name, value in kpis.items():
             if name == "Engagement Retention Ratio":
-                continue  # Can be NaN if no churned customers in filter
+                continue  # Can be NaN if no active customers in filter
             assert not (isinstance(value, float) and np.isnan(value)), (
                 f"KPI '{name}' is NaN"
             )
