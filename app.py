@@ -1,31 +1,3 @@
-"""
-==============================================================================
- CUSTOMER ENGAGEMENT & PRODUCT UTILIZATION ANALYTICS - STREAMLIT DASHBOARD
-==============================================================================
-
-A 7-page interactive Streamlit dashboard for exploring customer engagement,
-product utilization, and retention analytics in a retail banking context.
-
-Pages
------
-1. Executive Dashboard   - Portfolio health KPIs with risk alerts
-2. Customer Analysis     - Demographics, search, and data table
-3. Engagement Analytics  - Composite engagement & relationship scoring
-4. Product Utilization   - Product-holding patterns vs churn
-5. Premium Customer Det. - High-value customer identification & risk
-6. Retention Analytics   - Retention scoring and recommendations
-7. Business Insights     - Auto-generated insights with export
-
-Usage
------
-    $ streamlit run app.py
-
-Dependencies
-------------
-All business logic is imported from analysis.py — this file handles only
-the presentation layer (layout, charts, filters, styling).
-"""
-
 from __future__ import annotations
 
 from datetime import datetime

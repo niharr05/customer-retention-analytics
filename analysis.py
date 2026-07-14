@@ -1,36 +1,3 @@
-"""
-==============================================================================
- CUSTOMER ENGAGEMENT & PRODUCT UTILIZATION ANALYTICS FOR RETENTION STRATEGY
-==============================================================================
-
-A production-grade analytics pipeline that transforms raw retail banking
-customer data into actionable retention intelligence. The pipeline performs:
-
-    1. Automatic column detection & data loading
-    2. Comprehensive data quality validation (9 checks)
-    3. Intelligent data cleaning (IQR capping, median/mode imputation)
-    4. Feature engineering (12 derived business features)
-    5. Executive KPI computation (17 KPIs)
-    6. Visualization generation (20 publication-quality charts)
-    7. Automated plain-English business insight generation
-    8. Results export (cleaned data, KPI report, business summary)
-
-Usage
------
-    # Run the full pipeline from the command line:
-    $ python analysis.py
-
-    # Or import into another module / Streamlit dashboard:
-    >>> import analysis as az
-    >>> df, kpis, insights = az.run_full_pipeline()
-
-Design Principle
-----------------
-All business logic, feature definitions, and KPI calculations live here.
-The Streamlit dashboard (app.py) imports this module and never re-implements
-any analytics logic, ensuring a single source of truth.
-"""
-
 from __future__ import annotations
 
 import os

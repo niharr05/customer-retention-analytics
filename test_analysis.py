@@ -1,12 +1,3 @@
-"""
-==============================================================================
- TEST SUITE - Customer Engagement & Retention Analytics Pipeline
-==============================================================================
-
-Lightweight pytest suite covering every stage of the analytics pipeline.
-Run with:  pytest test_analysis.py -v
-"""
-
 import os
 import sys
 
